@@ -6,11 +6,15 @@ import Image from 'next/image';
 // import footer from './components/Footer';
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+  <main className="min-h-screen bg-background">
+
+
       <Navbar />
-      
+     
       <div className="container mx-auto px-4 py-8 flex gap-8">
+        
         {/* Left Column - Scrollable Content */}
+
         <div className="w-2/3 space-y-16">
           {/* Hero Section */}
           <section id="home" className="min-h-screen flex items-center">
@@ -108,7 +112,12 @@ Always eager to explore and learn the latest in tech.
         </div>
 
         {/* Right Column - Sticky Card */}
+       
+
         <div className="w-1/3">
+       
+
+      
           <div className="sticky top-8">
             <div className="glass-card p-8 rounded-2xl animate-float">
               <div className="avatar">
