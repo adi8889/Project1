@@ -3,31 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --background: 240 10% 3.9%;
+  --background: 0 0% 0%;
   --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
+  --card: 0 0% 0%;
   --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
+  --popover: 0 0% 0%;
   --popover-foreground: 0 0% 98%;
   --primary: 263 75% 65%;
   --primary-foreground: 0 0% 98%;
-  --secondary: 240 4% 16%;
+  --secondary: 0 0% 10%;
   --secondary-foreground: 0 0% 98%;
-  --muted: 240 4% 16%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 4% 16%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 64.9%;
+  --accent: 0 0% 10%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 4% 16%;
-  --input: 240 4% 16%;
-  --ring: 240 4% 16%;
+  --border: 0 0% 10%;
+  --input: 0 0% 10%;
+  --ring: 0 0% 10%;
   --chart-1: 263 75% 65%;
   --chart-2: 220 70% 50%;
   --chart-3: 30 80% 55%;
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
   --radius: 1rem;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 @layer base {
@@ -35,7 +36,16 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-foreground;
+    font-family: var(--font-montserrat);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+  }
+  p {
+    font-family: var(--font-montserrat);
+    font-weight: 400;
   }
 }
 
@@ -52,7 +62,11 @@
 
 /* Glass effect */
 .glass-card {
-  @apply backdrop-blur-lg bg-white/10 border border-white/20;
+  @apply backdrop-blur-lg bg-black/30 border border-white/10;
+}
+
+.glass-card:hover {
+  @apply shadow-xl transform -translate-y-1;
 }
 
 /* Gradient text */
@@ -75,4 +89,54 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary;
+}
+
+/* Custom button styles */
+.btn {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+  font-family: var(--font-montserrat);
+}
+
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.btn-circle {
+  @apply rounded-full p-3;
+}
+
+/* Section styles */
+section {
+  @apply relative overflow-hidden;
+}
+
+/* Stats section numbers */
+.stats-number {
+  @apply text-5xl font-bold text-primary;
+  font-family: var(--font-montserrat);
+}
+
+/* Project card styles */
+.project-card {
+  @apply glass-card p-8 rounded-2xl hover:shadow-xl transition-all duration-300;
+}
+
+/* Contact section styles */
+.contact-card {
+  @apply glass-card p-8 rounded-2xl max-w-2xl mx-auto;
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-4xl;
+  }
+  
+  h2 {
+    @apply text-3xl;
+  }
+  
+  .stats-number {
+    @apply text-4xl;
+  }
 }
